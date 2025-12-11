@@ -66,7 +66,7 @@ Be thorough and precise. This will be used to generate quiz questions."""
 
         # Call Claude API
         message = self.client.messages.create(
-            model="claude-sonnet-4-5-20241022",
+            model="claude-sonnet-4-20250514",
             max_tokens=4096,
             messages=[
                 {
@@ -132,7 +132,7 @@ Be thorough and precise. This will be used to generate quiz questions."""
 
         # Call Claude API
         message = self.client.messages.create(
-            model="claude-sonnet-4-5-20241022",
+            model="claude-sonnet-4-20250514",
             max_tokens=4096,
             messages=[
                 {

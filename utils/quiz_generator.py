@@ -65,7 +65,7 @@ Generate exactly {num_questions} questions following this format."""
 
         # Call Claude API
         message = self.client.messages.create(
-            model="claude-sonnet-4-5-20241022",
+            model="claude-sonnet-4-20250514",
             max_tokens=8192,
             messages=[
                 {
