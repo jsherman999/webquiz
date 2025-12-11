@@ -1,0 +1,71 @@
+/* Custom animations and styles */
+
+.upload-zone {
+    transition: all 0.3s ease;
+}
+
+.upload-zone.dragover {
+    border-color: #4A90E2;
+    background-color: rgba(74, 144, 226, 0.05);
+}
+
+.question-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+}
+
+.answer-option {
+    transition: all 0.2s ease;
+}
+
+.answer-option:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+}
+
+.answer-option.selected {
+    background-color: #4A90E2;
+    color: white;
+}
+
+.feedback-panel {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.score-badge {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Loading spinner */
+.spinner {
+    border: 3px solid rgba(74, 144, 226, 0.1);
+    border-top-color: #4A90E2;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
