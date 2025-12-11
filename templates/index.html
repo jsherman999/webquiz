@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}WebQuiz - Upload{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <h1 class="text-4xl font-bold text-center mb-2">WebQuiz</h1>
+    <p class="text-center text-gray-600 mb-12">Upload your study material and test your knowledge!</p>
+
+    <!-- Upload Zone -->
+    <div id="uploadZone" class="upload-zone border-4 border-dashed border-gray-300 rounded-xl p-12 text-center cursor-pointer">
+        <div id="uploadPrompt">
+            <svg class="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+            </svg>
+            <p class="text-xl font-semibold mb-2">Drop your study material here!</p>
+            <p class="text-gray-500 mb-4">or click to browse</p>
+            <p class="text-sm text-gray-400">Accepts PDF and Excel files (max 10MB)</p>
+        </div>
+
+        <div id="processingIndicator" class="hidden">
+            <div class="spinner mx-auto mb-4"></div>
+            <p class="text-lg font-semibold">Processing your document...</p>
+            <p class="text-sm text-gray-500">This may take a moment</p>
+        </div>
+
+        <input type="file" id="fileInput" class="hidden" accept=".pdf,.xlsx,.xls">
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorMessage" class="hidden mt-4 p-4 bg-error bg-opacity-10 border border-error rounded-lg text-error">
+        <p class="font-semibold">Error:</p>
+        <p id="errorText"></p>
+    </div>
+
+    <!-- Quiz Setup (shown after upload) -->
+    <div id="quizSetup" class="hidden mt-8">
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">Document processed!</h2>
+            <p class="text-gray-600 mb-6">Ready to create your quiz. How many questions would you like?</p>
+
+            <div class="mb-6">
+                <label class="block text-sm font-semibold mb-2">Number of questions:</label>
+                <select id="numQuestions" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                    <option value="5">5 questions</option>
+                    <option value="10" selected>10 questions</option>
+                    <option value="15">15 questions</option>
+                    <option value="20">20 questions</option>
+                </select>
+            </div>
+
+            <button id="startQuizBtn" class="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-opacity-90 transition">
+                Start Quiz!
+            </button>
+        </div>
+    </div>
+
+    <!-- History Link -->
+    <div class="text-center mt-8">
+        <a href="/history" class="text-primary hover:underline">View Quiz History</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}
