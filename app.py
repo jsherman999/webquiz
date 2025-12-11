@@ -302,4 +302,4 @@ if __name__ == '__main__':
     os.makedirs('data/history', exist_ok=True)
 
     # Run on all interfaces to accept LAN connections
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5666, debug=True)
